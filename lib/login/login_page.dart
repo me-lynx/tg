@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:tg/home/home_page.dart';
-import 'package:tg/widgets/background.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:tg/widgets/palete.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -19,9 +19,8 @@ class _LoginPageState extends State<LoginPage> {
     return Material(
       child: Stack(
         children: <Widget>[
-          BackgroundPage(),
           Scaffold(
-            backgroundColor: Colors.transparent,
+            backgroundColor: Palette.primaryColor,
             body: Container(
               child: Form(key: formKey, child: _login()),
             ),
@@ -35,53 +34,120 @@ class _LoginPageState extends State<LoginPage> {
     return Padding(
       padding: EdgeInsets.only(left: 25, right: 25),
       child: ListView(
+        physics: NeverScrollableScrollPhysics(),
         children: <Widget>[
           SizedBox(
             height: 4.h,
           ),
+          Center(
+            child: Column(
+              children: [
+                Icon(
+                  FontAwesomeIcons.boxes,
+                  color: Colors.white,
+                  size: 40.sp,
+                ),
+                SizedBox(
+                  height: 3.h,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'COVIDLOG',
+                      style: TextStyle(
+                        fontSize: 30.sp,
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    )
+                  ],
+                )
+              ],
+            ),
+          ),
+          SizedBox(
+            height: 10.h,
+          ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              SizedBox(
-                child: Image.asset("images/img_login.jpg"),
-                height: 300,
-                width: 300,
+            children: [
+              Icon(
+                FontAwesomeIcons.userAlt,
+                size: 16.sp,
+                color: Colors.white,
               ),
-              // Text(
-              //   "BEM VINDO!",
-              //   style: TextStyle(
-              //     fontSize: 30.sp,
-              //     fontWeight: FontWeight.bold,
-              //     color: Colors.black,
-              //   ),
-              //   textAlign: TextAlign.start,
-              // ),
+              SizedBox(
+                width: 2.w,
+              ),
+              Text(
+                'Usuário',
+                style: TextStyle(
+                  fontSize: 14.sp,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
             ],
           ),
           SizedBox(
-            height: 10.h,
+            height: 1.h,
           ),
-          TextField(),
-          TextField(),
+          TextField(
+            decoration: InputDecoration(
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                focusColor: Colors.white,
+                hoverColor: Colors.white,
+                filled: true,
+                hintStyle: TextStyle(color: Colors.white),
+                fillColor: Colors.white70),
+          ),
+          SizedBox(
+            height: 1.h,
+          ),
+          Row(
+            children: [
+              Icon(
+                FontAwesomeIcons.key,
+                size: 16.sp,
+                color: Colors.white,
+              ),
+              SizedBox(
+                width: 2.w,
+              ),
+              Text(
+                'Senha',
+                style: TextStyle(
+                  fontSize: 14.sp,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 1.h,
+          ),
+          TextField(
+            decoration: InputDecoration(
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                filled: true,
+                focusColor: Colors.white,
+                hoverColor: Colors.white,
+                hintStyle: TextStyle(color: Colors.white),
+                fillColor: Colors.white70),
+          ),
           SizedBox(
             height: 10.h,
           ),
-          ElevatedButton(
-            style: ButtonStyle(
-              backgroundColor:
-                  MaterialStateProperty.all<Color>(Color(0xFF3383CD)),
-            ),
-            onPressed: () {
-              Get.to(() => HomePage());
-            },
-            child: Text(
-              'LOGIN',
-              style: TextStyle(
-                fontSize: 20.sp,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
-            ),
+          TextButton(
+            style: TextButton.styleFrom(
+                primary: Palette.primaryColor, backgroundColor: Colors.white),
+            onPressed: () {},
+            child: Text('ENTRAR'),
           ),
         ],
       ),
