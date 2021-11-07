@@ -9,9 +9,9 @@ void main() => runApp(
           return GetMaterialApp(
             debugShowCheckedModeBanner: false,
             getPages: [
-              GetPage(name: "/login", page: () => LoginPage()),
+              GetPage(name: "/bottomNav", page: () => LoginPage()),
             ],
-            initialRoute: '/login',
+            initialRoute: '/bottomNav',
           );
         },
       ),

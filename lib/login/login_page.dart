@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
 
 import 'package:responsive_sizer/responsive_sizer.dart';
+import 'package:tg/master-user/dashboard_master.dart';
+import 'package:tg/widgets/bottom_nav.dart';
 import 'package:tg/widgets/palete.dart';
 
 class LoginPage extends StatefulWidget {
@@ -146,7 +149,9 @@ class _LoginPageState extends State<LoginPage> {
           TextButton(
             style: TextButton.styleFrom(
                 primary: Palette.primaryColor, backgroundColor: Colors.white),
-            onPressed: () {},
+            onPressed: () {
+              Get.to(() => BottomNavScreen());
+            },
             child: Text('ENTRAR'),
           ),
         ],
