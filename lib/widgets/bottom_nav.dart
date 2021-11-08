@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:tg/master-user/add_vaccines.dart';
 import 'package:tg/master-user/dashboard_master.dart';
+import 'package:tg/master-user/list_vaccines_master.dart';
 import 'package:tg/widgets/palete.dart';
 
 class BottomNavScreen extends StatefulWidget {
@@ -10,8 +12,8 @@ class BottomNavScreen extends StatefulWidget {
 class _BottomNavScreenState extends State<BottomNavScreen> {
   final List _screens = [
     DashboardMaterUser(),
-    Scaffold(),
-    Scaffold(),
+    AddVaccines(),
+    ListVaccinesMaster(),
     Scaffold(),
   ];
   int _currentIndex = 0;
