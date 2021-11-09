@@ -3,6 +3,7 @@ import 'package:tg/master-user/add_vaccines.dart';
 import 'package:tg/master-user/dashboard_master.dart';
 import 'package:tg/master-user/list_vaccines_master.dart';
 import 'package:tg/widgets/palete.dart';
+import 'package:tg/widgets/stats_grid.dart';
 
 class BottomNavScreen extends StatefulWidget {
   @override
@@ -14,7 +15,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
     DashboardMaterUser(),
     AddVaccines(),
     ListVaccinesMaster(),
-    Scaffold(),
+    StatsGrid()
   ];
   int _currentIndex = 0;
 

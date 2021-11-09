@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tg/widgets/custom_app_bar.dart';
 import 'package:tg/widgets/palete.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 
 class ListVaccinesMaster extends StatefulWidget {
   const ListVaccinesMaster({Key? key}) : super(key: key);
@@ -21,6 +22,11 @@ class _ListVaccinesMasterState extends State<ListVaccinesMaster> {
         slivers: <Widget>[
           _buildHeader(screenHeight),
           _content(screenHeight),
+          _content(screenHeight),
+          _content(screenHeight),
+          _content(screenHeight),
+          _content(screenHeight),
+          _content(screenHeight),
           // _buildYourOwnTest(screenHeight),
           // _buildYourOwnTest2(screenHeight),
         ],
@@ -35,7 +41,7 @@ SliverToBoxAdapter _content(double screenHeight) {
       padding: const EdgeInsets.all(25),
       child: Expanded(
         child: Container(
-          height: 100,
+          height: 17.h,
           decoration: BoxDecoration(
             color: Palette.primaryColor2,
             borderRadius: BorderRadius.all(
@@ -43,31 +49,61 @@ SliverToBoxAdapter _content(double screenHeight) {
             ),
           ),
           child: Padding(
-            padding: const EdgeInsets.only(left: 30, top: 0),
+            padding: const EdgeInsets.all(20),
             child: Column(
               children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    SizedBox(),
+                    Text('Lote: 19209'),
                     ClipRRect(
                       borderRadius: BorderRadius.all(Radius.circular(30)),
                       child: Card(
-                          child: Padding(
-                            padding: const EdgeInsets.all(4),
-                            child: Text(
-                              'Pfizer',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 15,
-                              ),
+                          child: Text(
+                            ' Pfizer ',
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 15,
                             ),
                           ),
                           color: Palette.primaryColor),
                     ),
                   ],
-                )
+                ),
+                SizedBox(
+                  height: 1.h,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('Validade: 12/12/2021'),
+                    SizedBox(),
+                  ],
+                ),
+                SizedBox(
+                  height: 1.h,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('DR Responsável: Bauru - Centro'),
+                    SizedBox(),
+                  ],
+                ),
+                ClipRRect(
+                  borderRadius: BorderRadius.all(Radius.circular(30)),
+                  child: Card(
+                      child: Text(
+                        ' INATIVA ',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 15,
+                        ),
+                      ),
+                      color: Colors.red),
+                ),
               ],
             ),
           ),
