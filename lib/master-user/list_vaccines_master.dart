@@ -1,5 +1,8 @@
+import 'package:dropdown_button2/custom_dropdown_button2.dart';
+import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
+import 'package:tg/master-user/list_vaccines/list_vaccines_controller.dart';
 import 'package:tg/widgets/custom_app_bar.dart';
 import 'package:tg/widgets/palete.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
@@ -12,6 +15,8 @@ class ListVaccinesMaster extends StatefulWidget {
 }
 
 class _ListVaccinesMasterState extends State<ListVaccinesMaster> {
+  var controller = Get.put(ListVaccinesController());
+
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
@@ -27,6 +32,42 @@ class _ListVaccinesMasterState extends State<ListVaccinesMaster> {
           _content(screenHeight),
           _content(screenHeight),
           _content(screenHeight),
+          // Center(
+          //   child: DropdownButtonHideUnderline(
+          //     child: DropdownButton2(
+          //       hint: Expanded(
+          //         child: Text(
+          //           'Dr responsável',
+          //           style: TextStyle(fontSize: 13, color: Colors.white),
+          //         ),
+          //       ),
+          //       items: controller.items
+          //           .map((item) => DropdownMenuItem<String>(
+          //                 value: item,
+          //                 child: Text(
+          //                   item,
+          //                   style: const TextStyle(
+          //                     fontSize: 13,
+          //                   ),
+          //                 ),
+          //               ))
+          //           .toList(),
+          //       value: controller.selectedValue,
+          //       onChanged: (value) {
+          //         // setState(() {
+          //         //   selectedValue = value as String;
+          //         // });
+          //       },
+          //       icon: Icon(
+          //         Icons.search,
+          //         color: Colors.white,
+          //       ),
+          //       buttonHeight: 40,
+          //       buttonWidth: 140,
+          //       itemHeight: 40,
+          //     ),
+          //   ),
+          // ),
           // _buildYourOwnTest(screenHeight),
           // _buildYourOwnTest2(screenHeight),
         ],
@@ -114,6 +155,7 @@ SliverToBoxAdapter _content(double screenHeight) {
 }
 
 SliverToBoxAdapter _buildHeader(double screenHeight) {
+  String? selectedValue;
   return SliverToBoxAdapter(
     child: Container(
       padding: const EdgeInsets.all(20.0),
@@ -124,16 +166,20 @@ SliverToBoxAdapter _buildHeader(double screenHeight) {
           bottomRight: Radius.circular(40.0),
         ),
       ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+      child: Column(
         children: [
-          Text(
-            'Estoque de Vacinas',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 20,
-              fontWeight: FontWeight.w600,
-            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'Estoque de Vacinas',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 20,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
+            ],
           ),
         ],
       ),

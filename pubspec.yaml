@@ -32,6 +32,7 @@ dependencies:
   # flutter_svg: ^1.0.2
   responsive_sizer: ^3.0.4+4
   font_awesome_flutter: ^9.2.0  
+  dropdown_button2: ^1.2.2
   bubble_tab_indicator: ^0.1.4
 
 dev_dependencies:
