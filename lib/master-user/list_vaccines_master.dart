@@ -16,17 +16,19 @@ class ListVaccinesMaster extends StatefulWidget {
 }
 
 class _ListVaccinesMasterState extends State<ListVaccinesMaster> {
-  var controller = Get.put(ListVaccinesController());
-
   @override
   Widget build(BuildContext context) {
     final screenHeight = MediaQuery.of(context).size.height;
+
     return Scaffold(
       appBar: CustomAppBar(),
       body: CustomScrollView(
         physics: ClampingScrollPhysics(),
         slivers: <Widget>[
           _buildHeader(screenHeight),
+
+          Filter(),
+          //_filter(screenHeight),
           _content(screenHeight),
           _content2(screenHeight),
           _content3(screenHeight),
@@ -36,6 +38,121 @@ class _ListVaccinesMasterState extends State<ListVaccinesMaster> {
     );
   }
 }
+
+class Filter extends StatefulWidget {
+  const Filter({Key? key}) : super(key: key);
+
+  @override
+  State<Filter> createState() => _FilterState();
+}
+
+class _FilterState extends State<Filter> {
+  @override
+  Widget build(BuildContext context) {
+    var controller = Get.put(ListVaccinesController());
+
+    String? valueText = "Centro";
+    return SliverToBoxAdapter(
+      child: Column(
+        children: [
+          SizedBox(
+            height: 30,
+          ),
+          Text('Filtrar por DR responsável:', style: TextStyle(fontSize: 18)),
+          Container(
+            margin: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+            padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+            width: double.infinity,
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(25),
+              border: Border.all(
+                color: Color(0xFFE5E5E5),
+              ),
+            ),
+            child: Column(
+              children: [
+                DropdownButton(
+                  isExpanded: true,
+                  underline: SizedBox(),
+                  icon: Icon(Icons.arrow_drop_down),
+                  value: valueText,
+                  items: ['Centro', 'Vila Falcão', 'Mary Dota', 'Carolina']
+                      .map<DropdownMenuItem<String>>((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Text(value),
+                    );
+                  }).toList(),
+                  onChanged: (value) {
+                    setState() {
+                      valueText = value.toString();
+                    }
+                  },
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+// _filter(double screenHeight) {
+//   var controller = Get.put(ListVaccinesController());
+//   String? valueText = "Indonesia";
+//   return SliverToBoxAdapter(
+//     child: Container(
+//       margin: EdgeInsets.symmetric(horizontal: 20),
+//       padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+//       height: 60,
+//       width: double.infinity,
+//       decoration: BoxDecoration(
+//         color: Colors.white,
+//         borderRadius: BorderRadius.circular(25),
+//         border: Border.all(
+//           color: Color(0xFFE5E5E5),
+//         ),
+//       ),
+//       child: DropdownButton(
+//         isExpanded: true,
+//         underline: SizedBox(),
+//         icon: Icon(Icons.arrow_drop_down),
+//         value: valueText,
+//         items: ['Indonesia', 'Bangladesh', 'United States', 'Japan']
+//             .map<DropdownMenuItem<String>>((String value) {
+//           return DropdownMenuItem<String>(
+//             value: value,
+//             child: Text(value),
+//           );
+//         }).toList(),
+//         onChanged: (value) {
+//           setState() {
+//             valueText = value.toString();
+//           }
+//         },
+//       ),
+//     ),
+
+//     // child: Padding(
+//     //   padding: const EdgeInsets.all(8.0),
+//     //   child: TextButton(
+//     //     style: TextButton.styleFrom(
+//     //         primary: Palette.primaryColor, backgroundColor: Colors.white),
+//     //     onPressed: () {
+//     //       //Get.to(() => BottomNavScreen());
+//     //     },
+//     //     child: Row(
+//     //       mainAxisAlignment: MainAxisAlignment.center,
+//     //       children: [Icon(Icons.filter_alt), Text('Filtrar')],
+//     //     ),
+//     //   ),
+//     // ),
+//   );
+// }
+// //    Icon(Icons.filter_alt),
+// //    FILTER
 
 SliverToBoxAdapter _content(double screenHeight) {
   return SliverToBoxAdapter(
