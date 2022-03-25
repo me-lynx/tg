@@ -52,45 +52,139 @@ class _FilterState extends State<Filter> {
     var controller = Get.put(ListVaccinesController());
 
     String? valueText = "Centro";
+    String? valueText2 = "Filtrar por DR ";
     return SliverToBoxAdapter(
       child: Column(
         children: [
           SizedBox(
             height: 30,
           ),
-          Text('Filtrar por DR responsável:', style: TextStyle(fontSize: 18)),
-          Container(
-            margin: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
-            padding: EdgeInsets.symmetric(vertical: 10, horizontal: 20),
-            width: double.infinity,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(25),
-              border: Border.all(
-                color: Color(0xFFE5E5E5),
-              ),
-            ),
-            child: Column(
-              children: [
-                DropdownButton(
-                  isExpanded: true,
-                  underline: SizedBox(),
-                  icon: Icon(Icons.arrow_drop_down),
-                  value: valueText,
-                  items: ['Centro', 'Vila Falcão', 'Mary Dota', 'Carolina']
-                      .map<DropdownMenuItem<String>>((String value) {
-                    return DropdownMenuItem<String>(
-                      value: value,
-                      child: Text(value),
-                    );
-                  }).toList(),
-                  onChanged: (value) {
-                    setState() {
-                      valueText = value.toString();
-                    }
-                  },
+          GestureDetector(
+            onTap: () {
+              showDialog(
+                context: context,
+                builder: (context) {
+                  return Center(
+                    child: Container(
+                      height: 50.h,
+                      child: AlertDialog(
+                        title: Text('Selecione o Filtro'),
+                        content: Column(
+                          children: [
+                            Container(
+                              margin: EdgeInsets.symmetric(
+                                  horizontal: 20, vertical: 30),
+                              padding: EdgeInsets.symmetric(
+                                  vertical: 10, horizontal: 20),
+                              height: 9.h,
+                              width: 200,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(25),
+                                border: Border.all(
+                                  color: Color(0xFFE5E5E5),
+                                ),
+                              ),
+                              child: Column(
+                                children: [
+                                  Expanded(
+                                    child: DropdownButton(
+                                      underline: SizedBox(),
+                                      icon: Icon(Icons.arrow_drop_down),
+                                      value: valueText2,
+                                      items: [
+                                        'Filtrar por vacina',
+                                        'Filtrar por DR ',
+                                        'Filtrar inativos',
+                                        'Filtrar ativos',
+                                      ].map<DropdownMenuItem<String>>(
+                                          (String value) {
+                                        return DropdownMenuItem<String>(
+                                          value: value,
+                                          child: Text(value),
+                                        );
+                                      }).toList(),
+                                      onChanged: (String? value) {
+                                        setState(() {
+                                          valueText2 = value;
+                                        });
+                                      },
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Container(
+                              margin: EdgeInsets.symmetric(
+                                  horizontal: 20, vertical: 30),
+                              padding: EdgeInsets.symmetric(
+                                  vertical: 10, horizontal: 20),
+                              height: 9.h,
+                              width: 200,
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(25),
+                                border: Border.all(
+                                  color: Color(0xFFE5E5E5),
+                                ),
+                              ),
+                              child: Column(
+                                children: [
+                                  DropdownButton(
+                                    underline: SizedBox(),
+                                    icon: Icon(Icons.arrow_drop_down),
+                                    value: valueText,
+                                    items: [
+                                      'Centro',
+                                      'Vila Falcão',
+                                      'Mary Dota',
+                                      'Carolina'
+                                    ].map<DropdownMenuItem<String>>(
+                                        (String value) {
+                                      return DropdownMenuItem<String>(
+                                        value: value,
+                                        child: Text(value),
+                                      );
+                                    }).toList(),
+                                    onChanged: (value) {
+                                      setState() {
+                                        valueText = value.toString();
+                                      }
+                                    },
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  );
+                },
+              );
+            },
+            child: Container(
+              height: 5.h,
+              width: 30.w,
+              child: Card(
+                color: Palette.primaryColor,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Icon(
+                      Icons.filter_list,
+                      color: Colors.white,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text(
+                        'Filtrar',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ),
+                  ],
                 ),
-              ],
+              ),
             ),
           ),
         ],
