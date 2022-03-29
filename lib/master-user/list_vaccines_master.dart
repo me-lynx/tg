@@ -31,6 +31,8 @@ class _ListVaccinesMasterState extends State<ListVaccinesMaster> {
           //_filter(screenHeight),
           _content(screenHeight),
           _content2(screenHeight),
+          _content5(screenHeight),
+          _content6(screenHeight),
           _content3(screenHeight),
           _content4(screenHeight),
         ],
@@ -248,7 +250,178 @@ class _FilterState extends State<Filter> {
 // //    Icon(Icons.filter_alt),
 // //    FILTER
 
+// }
+// //    Icon(Icons.filter_alt),
+// //    FILTER
+
+SliverToBoxAdapter _content5(double screenHeight) {
+  return SliverToBoxAdapter(
+    child: Padding(
+      padding: const EdgeInsets.all(25),
+      child: Expanded(
+        child: Container(
+          height: 20.h,
+          decoration: BoxDecoration(
+            color: Palette.primaryColor2,
+            borderRadius: BorderRadius.all(
+              Radius.circular(25),
+            ),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('Lote: 1920999'),
+                    ClipRRect(
+                      borderRadius: BorderRadius.all(Radius.circular(30)),
+                      child: Card(
+                          elevation: 3,
+                          child: Padding(
+                            padding: const EdgeInsets.all(3.0),
+                            child: Text(
+                              ' Coronavac ',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 15,
+                              ),
+                            ),
+                          ),
+                          color: Palette.primaryColor),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 1.h,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('Validade: 12/12/2021'),
+                    SizedBox(),
+                  ],
+                ),
+                SizedBox(
+                  height: 1.h,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('DR Responsável: Bauru - Centro'),
+                    SizedBox(),
+                  ],
+                ),
+                ClipRRect(
+                  borderRadius: BorderRadius.all(Radius.circular(30)),
+                  child: Card(
+                      child: Text(
+                        ' INATIVA ',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 15,
+                        ),
+                      ),
+                      color: Colors.red),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    ),
+  );
+}
+
 SliverToBoxAdapter _content(double screenHeight) {
+  return SliverToBoxAdapter(
+    child: Padding(
+      padding: const EdgeInsets.all(25),
+      child: Expanded(
+        child: Container(
+          height: 20.h,
+          decoration: BoxDecoration(
+            color: Palette.primaryColor2,
+            borderRadius: BorderRadius.all(
+              Radius.circular(25),
+            ),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('Lote: 1920999'),
+                    ClipRRect(
+                      borderRadius: BorderRadius.all(Radius.circular(30)),
+                      child: Card(
+                          elevation: 3,
+                          child: Padding(
+                            padding: const EdgeInsets.all(3.0),
+                            child: Text(
+                              ' Coronavac ',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 15,
+                              ),
+                            ),
+                          ),
+                          color: Palette.primaryColor),
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: 1.h,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('Validade: 12/12/2021'),
+                    SizedBox(),
+                  ],
+                ),
+                SizedBox(
+                  height: 1.h,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('DR Responsável: Bauru - Centro'),
+                    SizedBox(),
+                  ],
+                ),
+                ClipRRect(
+                  borderRadius: BorderRadius.all(Radius.circular(30)),
+                  child: Card(
+                      child: Text(
+                        ' INATIVA ',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 15,
+                        ),
+                      ),
+                      color: Colors.red),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    ),
+  );
+}
+// }
+// //    Icon(Icons.filter_alt),
+// //    FILTER
+
+SliverToBoxAdapter _content6(double screenHeight) {
   return SliverToBoxAdapter(
     child: Padding(
       padding: const EdgeInsets.all(25),
