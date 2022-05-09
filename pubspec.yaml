@@ -35,6 +35,10 @@ dependencies:
   dropdown_button2: ^1.2.2
   bubble_tab_indicator: ^0.1.4
   flutter_slidable: ^1.2.0
+  path:
+  path_provider:
+  sqflite:
+  http:
 
 dev_dependencies:
   flutter_test:
